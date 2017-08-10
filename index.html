@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>A-FRAME</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.rawgit.com/aframevr/aframe/v0.5.0/dist/aframe-master.min.js"></script>
+    <script src="https://cdn.rawgit.com/kripken/ammo.js/dcab07bf0e7f2b4b64c01dc45da846344c8f50be/builds/ammo.js"></script>
+    <script src="https://cdn.rawgit.com/takahirox/aframe-outline/v1.1.0/build/aframe-outline.min.js"></script>
+    <script src="https://cdn.rawgit.com/takahirox/a-mmd/v1.0.2/build/a-mmd.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+      AFRAME.registerComponent('cursor-listener', {
+          init: function () {
+              this.el.addEventListener("click", function (evt) {
+                  console.log('araisan nanoda-!!')
+              });
+          }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene antialias="true" outline>
+      <a-sky src="sm_lotw-041119.jpg"></a-sky>
+      <a-entity position="0 0 10">
+        <a-camera position="0 10 20">
+          <a-entity cursor="fuse: true; fuseTimeout: 2000"
+                          position="0 0 -1" 
+                          geometry="primitive: ring"
+                          scale="0.03 0.03 0.03" 
+                          material="color: orange; shader: flat">
+            <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                                  fill="none" from="0.05 0.05 0.05" to="0.001 0.001 0.001"></a-animation>
+          </a-entity>
+        </a-camera>
+      </a-entity>
+
+      <a-entity mmd-model="model:./アライグマ/アライグマ.pmx;" id="araisan" position="10 -10 0"></a-entity>
+
+      <a-entity>
+        <a-entity mmd-model="model:./トキ/Model/トキ.pmx;" id="toki" position="-50 0 0"></a-entity>
+        <a-animation
+            direction="alternate"
+            from="30 0 0" to="0 20 50" dur="5000"
+            repeat="indefinite" easing="ease">>
+        </a-animation>
+      </a-entity>
+
+      <a-entity>
+        <a-entity mmd-model="model:./フェネック/フェネック.pmx;" id="fennec" position="70 -10 0">
+          <a-animation
+            attribute="rotation" direction="alternate"
+            from="0 0 0" to="0 360 0" dur="4000"
+            repeat="indefinite" easing="ease">
+          </a-animation>
+        </a-entity>
+      </a-entity>
+
+      <a-light type="ambient" color="#888"></a-light>
+      <a-light color="#AAA" distance="100" intensity="0.4" type="point"></a-light>
+    </a-scene>
+    <audio src="./静かな森.mp3" autoplay loop></audio>
+  <script type="text/javascript">  
+    var araisan = document.getElementById("araisan");
+    var fennec = document.getElementById("fennec");
+    var toki = document.getElementById("toki");
+    araisan.addEventListener("click", function(e) {
+      window.open("http://www.zoocan.jp/zukan/index.cgi?310")
+    },false);
+    fennec.addEventListener("click", function(e) {
+      window.open("http://www.zoocan.jp/zukan/index.cgi?104")
+    },false);h
+    toki.addEventListener("click", function(e) {
+      window.open("http://www.zoocan.jp/zukan/index.cgi?312")
+    },false);
+  </script>
+
+  </body>
+</html>
