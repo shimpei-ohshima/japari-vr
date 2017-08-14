@@ -9,15 +9,6 @@
     <script src="https://cdn.rawgit.com/takahirox/aframe-outline/v1.1.0/build/aframe-outline.min.js"></script>
     <script src="https://cdn.rawgit.com/takahirox/a-mmd/v1.0.2/build/a-mmd.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>
-      AFRAME.registerComponent('cursor-listener', {
-          init: function () {
-              this.el.addEventListener("click", function (evt) {
-                  console.log('araisan nanoda-!!')
-              });
-          }
-      });
-    </script>
   </head>
   <body>
     <a-scene antialias="true" outline>
@@ -58,8 +49,8 @@
 
       <a-light type="ambient" color="#888"></a-light>
       <a-light color="#AAA" distance="100" intensity="0.4" type="point"></a-light>
+      <audio src="./静かな森.mp3" autoplay loop></audio>
     </a-scene>
-    <audio src="./静かな森.mp3" autoplay loop></audio>
   <script type="text/javascript">  
     var araisan = document.getElementById("araisan");
     var fennec = document.getElementById("fennec");
